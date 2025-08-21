@@ -71,8 +71,8 @@ export default function Home() {
           <Button variant="secondary" size="lg" className="text-base sm:text-lg py-2 sm:py-3" onClick={handleDelete}>
             DEL
           </Button>
-          <Button variant="ghost" size="lg" className="text-base sm:text-lg py-2 sm:py-3" onClick={() => handleClick("/")}>
-            ÷
+          <Button variant="ghost" size="lg" className="text-base sm:text-lg py-2 sm:py-3 bg-purple-900 text-purple-300 hover:bg-purple-800 border border-purple-700" onClick={() => handleClick("/")}>
+            <span className="font-bold text-xl">÷</span>
           </Button>
         </div>
         <div className="grid grid-cols-4 gap-2 sm:gap-3">
@@ -92,7 +92,7 @@ export default function Home() {
                 key={btn + i}
                 variant={/[0-9.]/.test(btn) ? "secondary" : "ghost"}
                 size="lg"
-                className={`font-bold col-span-1 text-base sm:text-lg py-2 sm:py-3 ${/[0-9.]/.test(btn) ? "bg-gray-700 text-gray-100 hover:bg-gray-600" : "bg-purple-900 text-purple-300 hover:bg-purple-800"}`}
+                className={`font-bold col-span-1 text-base sm:text-lg py-2 sm:py-3 ${/[0-9.]/.test(btn) ? "bg-gray-700 text-gray-100 hover:bg-gray-600" : "bg-purple-900 text-purple-300 hover:bg-purple-800 border border-purple-700"}`}
                 onClick={() => handleClick(btn)}
               >
                 {btn === "/" ? "÷" : btn === "*" ? "×" : btn}
@@ -104,7 +104,7 @@ export default function Home() {
         {history.length > 0 && (
           <div className="mt-6">
             <h2 className="text-lg font-semibold text-purple-300 mb-2">History</h2>
-            <ul className="bg-gray-800 rounded-xl p-3 text-sm sm:text-base max-h-40 overflow-y-auto border border-gray-700">
+            <ul className="bg-gray-800 rounded-xl p-3 text-sm sm:text-base max-h-40 overflow-y-auto border border-gray-700 text-gray-100">
               {history.map((item, idx) => (
                 <li key={idx} className="flex justify-between py-1 border-b border-gray-700 last:border-b-0">
                   <span className="text-gray-300 font-mono">{item.expr}</span>
