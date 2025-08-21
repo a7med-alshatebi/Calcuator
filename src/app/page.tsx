@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState<string | null>(null);
+  const [history, setHistory] = useState<{ expr: string; result: string }[]>([]);
 
   const handleClick = (value: string) => {
     if (result !== null && /[0-9.]/.test(value)) {
@@ -30,8 +31,10 @@ export default function Home() {
       // eslint-disable-next-line no-eval
       const evalResult = eval(input);
       setResult(evalResult.toString());
+      setHistory(prev => [{ expr: input, result: evalResult.toString() }, ...prev]);
     } catch {
       setResult("Error");
+      setHistory(prev => [{ expr: input, result: "Error" }, ...prev]);
     }
   };
 
@@ -88,6 +91,20 @@ export default function Home() {
             )
           ))}
         </div>
+        {/* History Tape */}
+        {history.length > 0 && (
+          <div className="mt-6">
+            <h2 className="text-lg font-semibold text-purple-700 mb-2">History</h2>
+            <ul className="bg-gray-50 rounded-xl p-3 text-sm sm:text-base max-h-40 overflow-y-auto border border-gray-200">
+              {history.map((item, idx) => (
+                <li key={idx} className="flex justify-between py-1 border-b border-gray-100 last:border-b-0">
+                  <span className="text-gray-600 font-mono">{item.expr}</span>
+                  <span className="text-purple-600 font-bold">{item.result}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
