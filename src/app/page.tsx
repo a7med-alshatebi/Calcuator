@@ -71,9 +71,6 @@ export default function Home() {
           <Button variant="secondary" size="lg" className="text-base sm:text-lg py-2 sm:py-3" onClick={handleDelete}>
             DEL
           </Button>
-          <Button variant="ghost" size="lg" className="text-base sm:text-lg py-2 sm:py-3 bg-purple-900 text-purple-300 hover:bg-purple-800 border border-purple-700" onClick={() => handleClick("/")}>
-            <span className="font-bold text-xl">÷</span>
-          </Button>
         </div>
         <div className="grid grid-cols-4 gap-2 sm:gap-3">
           {buttons.flat().map((btn, i) => (
