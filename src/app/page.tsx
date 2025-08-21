@@ -65,16 +65,10 @@ export default function Home() {
           {result !== null ? result : input || "0"}
         </div>
         <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-3 sm:mb-4">
-          <Button variant="destructive" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3" onClick={handleClear}>
+          <Button variant="destructive" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3 rounded-xl shadow-md bg-red-700 text-white hover:bg-red-800 transition-all duration-150" onClick={handleClear}>
             C
           </Button>
-            <Button variant="destructive" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3 rounded-xl shadow-md bg-red-700 text-white hover:bg-red-800 transition-all duration-150" onClick={handleClear}>
-              C
-            </Button>
-            <Button variant="secondary" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3 rounded-xl shadow-md bg-gray-700 text-gray-100 hover:bg-gray-600 transition-all duration-150" onClick={handleDelete}>
-              DEL
-            </Button>
-          <Button variant="secondary" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3" onClick={handleDelete}>
+          <Button variant="secondary" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3 rounded-xl shadow-md bg-gray-700 text-gray-100 hover:bg-gray-600 transition-all duration-150" onClick={handleDelete}>
             DEL
           </Button>
         </div>
