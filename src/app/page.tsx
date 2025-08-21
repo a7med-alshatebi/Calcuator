@@ -43,31 +43,34 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
-      <div className="bg-white rounded-[2.5rem] shadow-2xl p-8 w-full max-w-xs border border-gray-200">
-        <h1 className="text-2xl font-bold text-center mb-6 text-purple-600 tracking-tight">Beautiful Calculator</h1>
-        <div className="mb-4 bg-gray-100 rounded-xl p-4 text-right text-2xl font-mono min-h-[56px] flex items-center justify-end shadow-inner border border-gray-200">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 px-2">
+      <div
+        className="bg-white rounded-3xl shadow-2xl w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl border border-gray-200 p-4 sm:p-8 flex flex-col justify-center"
+        style={{ minHeight: '420px' }}
+      >
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 sm:mb-6 text-purple-600 tracking-tight">Modern Calculator</h1>
+        <div className="mb-3 sm:mb-4 bg-gray-100 rounded-xl p-3 sm:p-4 text-right text-xl sm:text-2xl md:text-3xl font-mono min-h-[56px] flex items-center justify-end shadow-inner border border-gray-200">
           {result !== null ? result : input || "0"}
         </div>
-        <div className="grid grid-cols-4 gap-3 mb-4">
-          <Button variant="destructive" size="lg" className="col-span-2" onClick={handleClear}>
+        <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-3 sm:mb-4">
+          <Button variant="destructive" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3" onClick={handleClear}>
             C
           </Button>
-          <Button variant="secondary" size="lg" onClick={handleDelete}>
+          <Button variant="secondary" size="lg" className="text-base sm:text-lg py-2 sm:py-3" onClick={handleDelete}>
             DEL
           </Button>
-          <Button variant="ghost" size="lg" onClick={() => handleClick("/")}>
+          <Button variant="ghost" size="lg" className="text-base sm:text-lg py-2 sm:py-3" onClick={() => handleClick("/")}>
             ÷
           </Button>
         </div>
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 gap-2 sm:gap-3">
           {buttons.flat().map((btn, i) => (
             btn === "=" ? (
               <Button
                 key={btn + i}
                 variant="default"
                 size="lg"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold shadow-lg col-span-1 hover:from-purple-600 hover:to-pink-600"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold shadow-lg col-span-1 hover:from-purple-600 hover:to-pink-600 text-base sm:text-lg py-2 sm:py-3"
                 onClick={handleEqual}
               >
                 =
@@ -77,7 +80,7 @@ export default function Home() {
                 key={btn + i}
                 variant={/[0-9.]/.test(btn) ? "secondary" : "ghost"}
                 size="lg"
-                className={`font-bold col-span-1 ${/[0-9.]/.test(btn) ? "bg-gray-100 text-gray-700 hover:bg-gray-200" : "bg-purple-100 text-purple-600 hover:bg-purple-200"}`}
+                className={`font-bold col-span-1 text-base sm:text-lg py-2 sm:py-3 ${/[0-9.]/.test(btn) ? "bg-gray-100 text-gray-700 hover:bg-gray-200" : "bg-purple-100 text-purple-600 hover:bg-purple-200"}`}
                 onClick={() => handleClick(btn)}
               >
                 {btn === "/" ? "÷" : btn === "*" ? "×" : btn}
