@@ -68,7 +68,13 @@ export default function Home() {
           <Button variant="destructive" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3" onClick={handleClear}>
             C
           </Button>
-          <Button variant="secondary" size="lg" className="text-base sm:text-lg py-2 sm:py-3" onClick={handleDelete}>
+            <Button variant="destructive" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3 rounded-xl shadow-md bg-red-700 text-white hover:bg-red-800 transition-all duration-150" onClick={handleClear}>
+              C
+            </Button>
+            <Button variant="secondary" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3 rounded-xl shadow-md bg-gray-700 text-gray-100 hover:bg-gray-600 transition-all duration-150" onClick={handleDelete}>
+              DEL
+            </Button>
+          <Button variant="secondary" size="lg" className="col-span-2 text-base sm:text-lg py-2 sm:py-3" onClick={handleDelete}>
             DEL
           </Button>
         </div>
@@ -92,7 +98,7 @@ export default function Home() {
                 className={`font-bold col-span-1 text-base sm:text-lg py-2 sm:py-3 ${/[0-9.]/.test(btn) ? "bg-gray-700 text-gray-100 hover:bg-gray-600" : "bg-purple-900 text-purple-300 hover:bg-purple-800 border border-purple-700"}`}
                 onClick={() => handleClick(btn)}
               >
-                {btn === "/" ? "÷" : btn === "*" ? "×" : btn}
+                  {btn === "/" ? "÷" : btn === "*" ? "×" : btn}
               </Button>
             )
           ))}
