@@ -46,13 +46,22 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 px-2">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 px-2">
+      {/* Well-designed Title */}
+      <header className="w-full flex flex-col items-center mt-8 mb-6">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 drop-shadow-lg mb-2 text-center tracking-tight">
+          Calculator
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 font-medium text-center max-w-xl">
+          Simple, fast, and easy-to-use calculator. View your previous calculations in the history below.
+        </p>
+      </header>
       <div
-        className="bg-white rounded-3xl shadow-2xl w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl border border-gray-200 p-4 sm:p-8 flex flex-col justify-center"
+        className="bg-gray-900 rounded-3xl shadow-2xl w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl border border-gray-800 p-4 sm:p-8 flex flex-col justify-center"
         style={{ minHeight: '420px' }}
       >
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 sm:mb-6 text-purple-600 tracking-tight">Modern Calculator</h1>
-        <div className="mb-3 sm:mb-4 bg-gray-100 rounded-xl p-3 sm:p-4 text-right text-xl sm:text-2xl md:text-3xl font-mono min-h-[56px] flex items-center justify-end shadow-inner border border-gray-200">
+        {/* Removed Modern Calculator text */}
+        <div className="mb-3 sm:mb-4 bg-gray-800 rounded-xl p-3 sm:p-4 text-right text-xl sm:text-2xl md:text-3xl font-mono min-h-[56px] flex items-center justify-end shadow-inner border border-gray-700 text-gray-100">
           {result !== null ? result : input || "0"}
         </div>
         <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -83,7 +92,7 @@ export default function Home() {
                 key={btn + i}
                 variant={/[0-9.]/.test(btn) ? "secondary" : "ghost"}
                 size="lg"
-                className={`font-bold col-span-1 text-base sm:text-lg py-2 sm:py-3 ${/[0-9.]/.test(btn) ? "bg-gray-100 text-gray-700 hover:bg-gray-200" : "bg-purple-100 text-purple-600 hover:bg-purple-200"}`}
+                className={`font-bold col-span-1 text-base sm:text-lg py-2 sm:py-3 ${/[0-9.]/.test(btn) ? "bg-gray-700 text-gray-100 hover:bg-gray-600" : "bg-purple-900 text-purple-300 hover:bg-purple-800"}`}
                 onClick={() => handleClick(btn)}
               >
                 {btn === "/" ? "÷" : btn === "*" ? "×" : btn}
@@ -94,12 +103,12 @@ export default function Home() {
         {/* History Tape */}
         {history.length > 0 && (
           <div className="mt-6">
-            <h2 className="text-lg font-semibold text-purple-700 mb-2">History</h2>
-            <ul className="bg-gray-50 rounded-xl p-3 text-sm sm:text-base max-h-40 overflow-y-auto border border-gray-200">
+            <h2 className="text-lg font-semibold text-purple-300 mb-2">History</h2>
+            <ul className="bg-gray-800 rounded-xl p-3 text-sm sm:text-base max-h-40 overflow-y-auto border border-gray-700">
               {history.map((item, idx) => (
-                <li key={idx} className="flex justify-between py-1 border-b border-gray-100 last:border-b-0">
-                  <span className="text-gray-600 font-mono">{item.expr}</span>
-                  <span className="text-purple-600 font-bold">{item.result}</span>
+                <li key={idx} className="flex justify-between py-1 border-b border-gray-700 last:border-b-0">
+                  <span className="text-gray-300 font-mono">{item.expr}</span>
+                  <span className="text-purple-300 font-bold">{item.result}</span>
                 </li>
               ))}
             </ul>
