@@ -49,7 +49,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 px-2">
       {/* Well-designed Title */}
       <header className="w-full flex flex-col items-center mt-8 mb-6">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-indigo-500 drop-shadow-2xl mb-2 text-center tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-gray-400 drop-shadow-2xl mb-2 text-center tracking-tight">
           Calculator
         </h1>
         <p className="text-lg md:text-xl text-gray-300 font-medium text-center max-w-xl">
