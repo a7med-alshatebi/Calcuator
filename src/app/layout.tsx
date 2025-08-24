@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Modern Calculator",
   description: "A beautiful, fast, and easy-to-use calculator with history tape and dark mode.",
 };
-
+ 
 export default function RootLayout({
   children,
 }: Readonly<{
